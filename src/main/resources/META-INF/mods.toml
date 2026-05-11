@@ -1,0 +1,20 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="eftlm_wom"
+version="1.0.0"
+displayName="史诗战斗：车万女仆[奇迹武器]"
+displayURL="https://space.bilibili.com/3461562266290323?spm_id_from=333.1007.0.0"
+credits="S_SteelYard(戥子)"
+logoFile="LOGO.png"
+[[mixins]]
+config="${mod_id}.nixins.json"
+[[dependencies.eftlm_wom]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1]"
+ordering="AFTER"
+side="BOTH"
+
