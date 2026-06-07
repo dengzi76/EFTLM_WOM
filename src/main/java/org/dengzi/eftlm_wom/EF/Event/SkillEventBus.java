@@ -6,7 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import org.dengzi.eftlm_wom.EF.Skills.Guard;
+import org.dengzi.eftlm_wom.EF.Skills.guard.Guard;
 import org.dengzi.eftlm_wom.EF.Skills.Passive.Meditation;
 
 @EventBusSubscriber(
