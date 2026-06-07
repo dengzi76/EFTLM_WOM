@@ -35,6 +35,8 @@ public class WOMCompat {
             ItemAttackMotions.put(WOMItems.HERRSCHER.get(), Herrscher.Instance);
             ItemAttackMotions.put(WOMItems.SOLAR.get(), Solar.Instance);
             ItemAttackMotions.put(WOMItems.AGONY.get(), Agony.Instance);
+            ItemAttackMotions.put(WOMItems.TORMENTED_MIND.get(), Torment.Instance);
+            ItemAttackMotions.put(WOMItems.SATSUJIN.get(), Satsujin.Instance);
         }
     }
 }
