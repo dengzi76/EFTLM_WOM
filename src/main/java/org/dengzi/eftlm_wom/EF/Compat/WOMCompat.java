@@ -37,6 +37,7 @@ public class WOMCompat {
             ItemAttackMotions.put(WOMItems.AGONY.get(), Agony.Instance);
             ItemAttackMotions.put(WOMItems.TORMENTED_MIND.get(), Torment.Instance);
             ItemAttackMotions.put(WOMItems.SATSUJIN.get(), Satsujin.Instance);
+            ItemAttackMotions.put(WOMItems.ANTITHEUS.get(), Antitheus.Instance);
         }
     }
 }
