@@ -38,6 +38,12 @@ public class WOMCompat {
             ItemAttackMotions.put(WOMItems.TORMENTED_MIND.get(), Torment.Instance);
             ItemAttackMotions.put(WOMItems.SATSUJIN.get(), Satsujin.Instance);
             ItemAttackMotions.put(WOMItems.ANTITHEUS.get(), Antitheus.Instance);
+            ItemAttackMotions.put(WOMItems.NAPOLEON.get(), Napoleon.Instance);
+            ItemAttackMotions.put(WOMItems.BLACKSTAR.get(), Blackstar.Instance);
+            ItemAttackMotions.put(WOMItems.ORBIT.get(), Orbit.Instance);
+            SpecialItemAttackMotions.put(WOMItems.NOVA.get(), ImmutableMap.of(Styles.ONE_HAND, Nova_OneHand.Instance, Styles.TWO_HAND, Nova_TwoHand.Instance));
+            ItemAttackMotions.put(WOMItems.EVIL_TACHI.get(), Evil_Tachi.Instance);
+            ItemAttackMotions.put(WOMItems.CELERITY_BRACELET.get(), Clawed_Gauntle.Instance);
         }
     }
 }
