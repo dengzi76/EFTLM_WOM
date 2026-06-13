@@ -93,7 +93,7 @@ dependencies {
     implementation fg.deobf("libs:EpicFight_TouhouLittleMaid:1.1")
     implementation fg.deobf("libs:TouhouLittleMaid:1.5.2")
     implementation fg.deobf("curse.maven:epic-fight-mod-405076:7476040")
-    implementation fg.deobf("libs:WOM:2.0.16")
+    implementation fg.deobf("libs:WOM:2.0")
     implementation fg.deobf("libs:Embeddium:0.3.31")
     implementation fg.deobf("libs:MmmMmmMmmMmm:2.0.9")
     implementation fg.deobf("libs:moonlight:2.16.15")
