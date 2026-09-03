@@ -1,4 +1,6 @@
 {
   "maid_skill.eftlm_wom.guard": "Guard",
-  "maid_skill.eftlm_wom.meditation": "Meditation"
+  "maid_skill.eftlm_wom.meditation": "Meditation",
+  "itemGroup.eftlm_wom.skills": "EFTLM WOM: Skills",
+  "item.eftlm_wom.meditation_skillbook": "Meditation Skill Book"
 }

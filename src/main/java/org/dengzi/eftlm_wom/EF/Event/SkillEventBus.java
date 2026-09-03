@@ -5,8 +5,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import org.dengzi.eftlm_wom.EF.Skills.Passive.Meditation;
 import org.dengzi.eftlm_wom.EF.Skills.Guard;
+import org.dengzi.eftlm_wom.EF.Skills.Passive.Meditation;
 
 @EventBusSubscriber(
         modid = "eftlm_wom",
@@ -18,7 +18,7 @@ public class SkillEventBus {
 
     @SubscribeEvent
     public static void MaidSkillBuild(MaidSkillBuildEvent event) {
-        event.build(ResourceLocation.fromNamespaceAndPath("eftlm_wom", "meditation"), Meditation::new, Meditation.createBuilder());
+        event.build(ResourceLocation.fromNamespaceAndPath("eftlm_wom", "meditation"), Meditation::new, org.dengzi.eftlm_wom.EF.Skills.Passive.Meditation.createBuilder());
         event.build(ResourceLocation.fromNamespaceAndPath("eftlm_wom", "guard"), Guard::new, Guard.createBuilder());
     }
 }

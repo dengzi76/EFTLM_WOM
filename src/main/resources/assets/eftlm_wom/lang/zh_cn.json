@@ -1,4 +1,7 @@
 {
   "maid_skill.eftlm_wom.guard": "格挡",
-  "maid_skill.eftlm_wom.meditation": "冥想"
+  "maid_skill.eftlm_wom.meditation": "冥想",
+  "itemGroup.eftlm_wom.skills": "EFTLM:奇迹武器扩展",
+  "item.eftlm_wom.meditation_skillbook": "冥想技能书",
+  "item.eftlm_wom.skillbook": "奇迹武器女仆技能书"
 }
