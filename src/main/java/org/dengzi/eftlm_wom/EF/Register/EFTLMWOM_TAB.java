@@ -26,17 +26,6 @@ public class EFTLMWOM_TAB {
                 .title(Component.translatable("itemGroup.eftlm_wom.skills"))
                 .withTabsBefore(new ResourceKey[]{CreativeModeTabs.SPAWN_EGGS})
                 .icon(() -> new ItemStack(EFTLMWOM_Item.SKILLBOOK.get()))
-                .displayItems((parameters, output) -> {
-                    Set<ResourceLocation> skills = MaidSkillManager.getSkillRegisterName();
-                    for (ResourceLocation rl : skills) {
-                        if (!"eftlm_wom".equals(rl.getNamespace())) {
-                            continue;
-                        }
-                        ItemStack stack = new ItemStack(EFTLMWOM_Item.SKILLBOOK.get());
-                        MaidSkillBookItem.setContainingSkill(rl, stack);
-                        output.accept(stack);
-                    }
-                })
                 .build());
     }
 }
