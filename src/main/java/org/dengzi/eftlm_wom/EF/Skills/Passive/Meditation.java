@@ -197,6 +197,16 @@ public class Meditation extends MaidSkill {
         spawnParticles(maid, level, newStage);
     }
 
+    private int calculateEffectDuration(int timer, int stage) {
+        return switch (stage) {
+            case 1 -> timer;
+            case 2 -> (int) (timer * 1.5);
+            case 3 -> timer * 2;
+            case 4 -> timer * 3;
+            default -> 0;
+        };
+    }
+
     private void stopMeditating(EntityMaid maid, MaidPatch<?> patch) {
         patch.setData(this, MEDITATING, false);
         patch.setData(this, ANIMATION_ACTIVE, false);
@@ -209,24 +219,28 @@ public class Meditation extends MaidSkill {
     private void applyStageEffects(EntityMaid maid, MaidPatch<?> patch, int stage) {
         removeStageEffects(maid);
 
+        int timer = patch.getDataValue(this, MEDITATION_TIMER);
+
+        int duration = calculateEffectDuration(timer, stage);
+
         switch (stage) {
             case 1:
-                maid.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, Integer.MAX_VALUE, 0, false, false));
+                maid.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, duration, 0, false, false));
                 break;
             case 2:
-                maid.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, Integer.MAX_VALUE, 0, false, false));
-                maid.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, Integer.MAX_VALUE, 0, false, false));
+                maid.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, duration, 0, false, false));
+                maid.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, duration, 0, false, false));
                 break;
             case 3:
-                maid.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, Integer.MAX_VALUE, 0, false, false));
-                maid.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, Integer.MAX_VALUE, 0, false, false));
-                maid.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
+                maid.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, duration, 0, false, false));
+                maid.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, duration, 0, false, false));
+                maid.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, duration, 0, false, false));
                 break;
             case 4:
-                maid.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, Integer.MAX_VALUE, 1, false, false));
-                maid.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, Integer.MAX_VALUE, 0, false, false));
-                maid.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, Integer.MAX_VALUE, 1, false, false));
-                maid.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, Integer.MAX_VALUE, 0, false, false));
+                maid.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, duration, 1, false, false));
+                maid.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, duration, 0, false, false));
+                maid.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, duration, 1, false, false));
+                maid.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, duration, 0, false, false));
                 break;
         }
     }
