@@ -1,5 +1,5 @@
 {
-  "parent": "item/generated",
+  "parent": "ef_tlm:item/skillbook",
   "textures":
   {
     "layer0" : "eftlm_wom:item/skillbook"

@@ -4,6 +4,10 @@
     "compatibilityLevel": "JAVA_17",
     "refmap": "eftlm_wom.refmap.json",
     "mixins": [
+        "WomAnimationEventMixin"
+    ],
+    "client": [
+        "SkillBookRendererMixin"
     ],
     "injectors": {
         "defaultRequire": 1

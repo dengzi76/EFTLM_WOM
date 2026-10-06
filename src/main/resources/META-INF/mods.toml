@@ -35,7 +35,14 @@ side="BOTH"
 [[dependencies.eftlm_wom]]
 modId="ef_tlm"
 mandatory=true
-versionRange="[1.3,)"
+versionRange="[1.3.5,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.eftlm_wom]]
+modId="wom"
+mandatory=true
+versionRange="[2.0.171,)"
 ordering="AFTER"
 side="BOTH"
 

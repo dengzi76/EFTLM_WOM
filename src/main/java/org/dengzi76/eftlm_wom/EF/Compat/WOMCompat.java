@@ -18,7 +18,7 @@ import java.util.Map;
  * 奇迹武器（WOM）行为注册（适配 EFTLM 1.3 API）。
  * <p>
  * 女仆主手持有 WOM 武器时，EpicFight 的 AnimatedAttackGoal 按物品查表
- * 自动使用对应的连招行为；技能条目用主手物品冷却模拟技能 CD。
+ * 自动使用对应的连招行为；可学习技能由独立 MaidSkill 数据管理充能和冷却。
  */
 public final class WOMCompat {
 
@@ -59,7 +59,6 @@ public final class WOMCompat {
         itemAttackMotions.put(WOMItems.AGONY.get(), Agony.Instance);
         itemAttackMotions.put(WOMItems.TORMENTED_MIND.get(), Torment.Instance);
         itemAttackMotions.put(WOMItems.SATSUJIN.get(), Satsujin.Instance);
-        itemAttackMotions.put(WOMItems.ANTITHEUS.get(), Antitheus.Instance);
         itemAttackMotions.put(WOMItems.NAPOLEON.get(), Napoleon.Instance);
         itemAttackMotions.put(WOMItems.BLACKSTAR.get(), Blackstar.Instance);
         itemAttackMotions.put(WOMItems.ORBIT.get(), Orbit.Instance);

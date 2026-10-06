@@ -13,6 +13,7 @@ public class eftlm_wom {
     public static final String MODID = "eftlm_wom";
     private static final Logger LOGGER = LogUtils.getLogger();
     public eftlm_wom() {
+        org.dengzi76.eftlm_wom.EF.Register.WomSkillDataKeys.register();
         var modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         EFTLMWOM_Item.ITEMS.register(modEventBus);
         EFTLMWOM_TAB.Tab.register(modEventBus);

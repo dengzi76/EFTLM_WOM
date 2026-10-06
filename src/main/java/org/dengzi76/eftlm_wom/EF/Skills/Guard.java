@@ -1,5 +1,7 @@
 package org.dengzi76.eftlm_wom.EF.Skills;
 
+import org.dengzi76.eftlm_wom.EF.Register.WomSkillDataKeys;
+
 import com.github.tartaricacid.touhoulittlemaid.api.event.MaidAttackEvent;
 import com.github.tartaricacid.touhoulittlemaid.api.event.MaidTickEvent;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
@@ -30,12 +32,16 @@ import yesman.epicfight.world.capabilities.item.WeaponCategory;
 import java.util.Map;
 import java.util.function.BiFunction;
 public class Guard extends MaidSkill {
+    @Override
+    public net.minecraft.resources.ResourceLocation getIcon() {
+        return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("epicfight", "textures/gui/skills/guard/guard.png");
+    }
     public static final MaidSkillDataManager.SkillDataKey<Float> GUARD_PENALTY =
-            MaidSkillDataManager.SkillDataKey.createDataKey(MaidSkillDataManager.SkillDataKey.FLOAT);
+            WomSkillDataKeys.GUARD_PENALTY;
     public static final MaidSkillDataManager.SkillDataKey<Integer> GUARD_RESTORE_COUNTER =
-            MaidSkillDataManager.SkillDataKey.createDataKey(MaidSkillDataManager.SkillDataKey.INTEGER);
+            WomSkillDataKeys.GUARD_RESTORE_COUNTER;
     public static final MaidSkillDataManager.SkillDataKey<Boolean> Blocking =
-            MaidSkillDataManager.SkillDataKey.createDataKey(MaidSkillDataManager.SkillDataKey.BOOLEAN);
+            WomSkillDataKeys.GUARD_BLOCKING;
     protected final Map<WeaponCategory, BiFunction<CapabilityItem, MaidPatch<?>, AnimationManager.AnimationAccessor<? extends StaticAnimation>>> guardMotions;
     protected final Map<WeaponCategory, BiFunction<CapabilityItem, MaidPatch<?>, AnimationManager.AnimationAccessor<? extends StaticAnimation>>> guardBreakMotions;
     public static Guard.Builder createGuardBuilder() {
@@ -63,9 +69,9 @@ public class Guard extends MaidSkill {
     @Override
     public void onInit(MaidSkillInitEvent event) {
         MaidPatch<?> MaidPatch = event.getMaidPatch();
-        MaidPatch.registerData(this,GUARD_PENALTY,0F);
-        MaidPatch.registerData(this,GUARD_RESTORE_COUNTER,0);
-        MaidPatch.registerData(this,Blocking,false);
+        WomSkillDataKeys.initialize(MaidPatch, this, GUARD_PENALTY);
+        WomSkillDataKeys.initialize(MaidPatch, this, GUARD_RESTORE_COUNTER);
+        WomSkillDataKeys.initialize(MaidPatch, this, Blocking);
     }
     @Override
     public void MaidTick(MaidTickEvent event) {

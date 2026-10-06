@@ -1,5 +1,7 @@
 package org.dengzi76.eftlm_wom.EF.Skills.Passive;
 
+import org.dengzi76.eftlm_wom.EF.Register.WomSkillDataKeys;
+
 import com.github.tartaricacid.touhoulittlemaid.api.event.MaidTickEvent;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import net.EFTLM.EF.API.Event.MaidSkillInitEvent;
@@ -21,30 +23,30 @@ import yesman.epicfight.world.capabilities.item.WeaponCapability;
 
 public class Meditation extends MaidSkill {
     public static final MaidSkillDataManager.SkillDataKey<Boolean> MEDITATING =
-            MaidSkillDataManager.SkillDataKey.createDataKey(MaidSkillDataManager.SkillDataKey.BOOLEAN);
+            WomSkillDataKeys.MEDITATION_MEDITATING;
     public static final MaidSkillDataManager.SkillDataKey<Integer> MEDITATION_TIMER =
-            MaidSkillDataManager.SkillDataKey.createDataKey(MaidSkillDataManager.SkillDataKey.INTEGER);
+            WomSkillDataKeys.MEDITATION_TIMER;
     public static final MaidSkillDataManager.SkillDataKey<Integer> CURRENT_STAGE =
-            MaidSkillDataManager.SkillDataKey.createDataKey(MaidSkillDataManager.SkillDataKey.INTEGER);
+            WomSkillDataKeys.MEDITATION_CURRENT_STAGE;
     public static final MaidSkillDataManager.SkillDataKey<Float> LAST_POS_X =
-            MaidSkillDataManager.SkillDataKey.createDataKey(MaidSkillDataManager.SkillDataKey.FLOAT);
+            WomSkillDataKeys.MEDITATION_LAST_POS_X;
     public static final MaidSkillDataManager.SkillDataKey<Float> LAST_POS_Z =
-            MaidSkillDataManager.SkillDataKey.createDataKey(MaidSkillDataManager.SkillDataKey.FLOAT);
+            WomSkillDataKeys.MEDITATION_LAST_POS_Z;
     public static final MaidSkillDataManager.SkillDataKey<Boolean> ANIMATION_ACTIVE =
-            MaidSkillDataManager.SkillDataKey.createDataKey(MaidSkillDataManager.SkillDataKey.BOOLEAN);
+            WomSkillDataKeys.MEDITATION_ANIMATION_ACTIVE;
     public static final MaidSkillDataManager.SkillDataKey<Integer> DUREE =
-            MaidSkillDataManager.SkillDataKey.createDataKey(MaidSkillDataManager.SkillDataKey.INTEGER);
+            WomSkillDataKeys.MEDITATION_DUREE;
     public static final MaidSkillDataManager.SkillDataKey<Integer> CYCLE =
-            MaidSkillDataManager.SkillDataKey.createDataKey(MaidSkillDataManager.SkillDataKey.INTEGER);
+            WomSkillDataKeys.MEDITATION_CYCLE;
     public static final MaidSkillDataManager.SkillDataKey<Integer> COOLDOWN_END_TICK =
-            MaidSkillDataManager.SkillDataKey.createDataKey(MaidSkillDataManager.SkillDataKey.INTEGER);
+            WomSkillDataKeys.MEDITATION_COOLDOWN_END_TICK;
 
-    private static final int MEDITATION_COOLDOWN = 100;
-    private static final int ANIMATION_START_TICK = 200;
-    private static final int STAGE_1_TICKS = 400;
-    private static final int STAGE_2_TICKS = 800;
-    private static final int STAGE_3_TICKS = 1200;
-    private static final int STAGE_4_TICKS = 6000;
+    private static final int MEDITATION_COOLDOWN = 60;
+    private static final int ANIMATION_START_TICK = 100;
+    private static final int STAGE_1_TICKS = 200;
+    private static final int STAGE_2_TICKS = 400;
+    private static final int STAGE_3_TICKS = 600;
+    private static final int STAGE_4_TICKS = 3000;
 
     private static final DustParticleOptions RED_PARTICLES = new DustParticleOptions(new Vector3f(1.0F, 0.0F, 0.0F), 1.5F);
     private static final DustParticleOptions CYAN_PARTICLES = new DustParticleOptions(new Vector3f(0.0F, 1.0F, 1.0F), 1.5F);
@@ -58,15 +60,15 @@ public class Meditation extends MaidSkill {
     @Override
     public void onInit(MaidSkillInitEvent event) {
         MaidPatch<?> patch = event.getMaidPatch();
-        patch.registerData(this, MEDITATING, false);
-        patch.registerData(this, MEDITATION_TIMER, 0);
-        patch.registerData(this, CURRENT_STAGE, 0);
-        patch.registerData(this, LAST_POS_X, 0.0F);
-        patch.registerData(this, LAST_POS_Z, 0.0F);
-        patch.registerData(this, ANIMATION_ACTIVE, false);
-        patch.registerData(this, DUREE, 0);
-        patch.registerData(this, CYCLE, 0);
-        patch.registerData(this, COOLDOWN_END_TICK, 0);
+        WomSkillDataKeys.initialize(patch, this, MEDITATING);
+        WomSkillDataKeys.initialize(patch, this, MEDITATION_TIMER);
+        WomSkillDataKeys.initialize(patch, this, CURRENT_STAGE);
+        WomSkillDataKeys.initialize(patch, this, LAST_POS_X);
+        WomSkillDataKeys.initialize(patch, this, LAST_POS_Z);
+        WomSkillDataKeys.initialize(patch, this, ANIMATION_ACTIVE);
+        WomSkillDataKeys.initialize(patch, this, DUREE);
+        WomSkillDataKeys.initialize(patch, this, CYCLE);
+        WomSkillDataKeys.initialize(patch, this, COOLDOWN_END_TICK);
     }
 
     @Override

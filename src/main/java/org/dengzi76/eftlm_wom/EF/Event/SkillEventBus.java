@@ -7,7 +7,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import org.dengzi76.eftlm_wom.EF.Register.EFTLMWOM_TAB;
 import org.dengzi76.eftlm_wom.EF.Skills.Guard;
-import org.dengzi76.eftlm_wom.EF.Skills.Passive.Meditation;
+import org.dengzi76.eftlm_wom.EF.Skills.WOM.WomSkillCatalog;
 
 @EventBusSubscriber(
         modid = "eftlm_wom",
@@ -19,7 +19,9 @@ public class SkillEventBus {
 
     @SubscribeEvent
     public static void MaidSkillBuild(MaidSkillBuildEvent event) {
-        event.build(ResourceLocation.fromNamespaceAndPath("eftlm_wom", "meditation"), Meditation::new, Meditation.createBuilder().setCreativeTab(EFTLMWOM_TAB.Skill.get()));
-        event.build(ResourceLocation.fromNamespaceAndPath("eftlm_wom", "guard"), Guard::new, Guard.createBuilder().setCreativeTab(EFTLMWOM_TAB.Skill.get()));
+        WomSkillCatalog.register(event);
+        event.build(ResourceLocation.fromNamespaceAndPath("eftlm_wom", "guard"), Guard::new, Guard.createBuilder()
+                .setCreativeTab(EFTLMWOM_TAB.Skill.get())
+                .setIcon(ResourceLocation.fromNamespaceAndPath("eftlm_wom", "textures/item/skillbook.png")));
     }
 }
